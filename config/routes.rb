@@ -1,21 +1,15 @@
 Rails.application.routes.draw do
-  get 'sessions/create'
 
-  get 'sessions/destroy'
-
-  get 'users/show'
-
-  get 'users/new'
-
-  get 'users/create'
-
-  get 'home/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'home#index'
+  root 'home#index'
+
+  get '/logout' => 'sessions#destroy', as: :logout
+  get '/login'  => 'sessions#index', as: :login
+  post '/login' => 'sessions#create'
 
   resources :users
 
