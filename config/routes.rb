@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -11,7 +10,9 @@ Rails.application.routes.draw do
   get '/login'  => 'sessions#index', as: :login
   post '/login' => 'sessions#create'
 
-  resources :users
+  resources :users do
+    resources :spendings
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
