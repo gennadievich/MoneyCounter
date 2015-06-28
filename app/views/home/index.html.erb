@@ -1,3 +1,5 @@
-<h1>Home#index</h1>
+<h1>Count your money :)</h1>
 
-<%= current_user.email if current_user %>
+Earn Money :)
+
+<%= link_to 'Spending', new_user_spending_path(current_user) if current_user %>

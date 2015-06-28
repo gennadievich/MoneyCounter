@@ -1,6 +1,7 @@
 class CreateSpendings < ActiveRecord::Migration
   def change
     create_table :spendings do |t|
+      t.date :date
       t.integer :sum
       t.string :category
       t.string :description

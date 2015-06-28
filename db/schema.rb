@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20150628164219) do
   enable_extension "plpgsql"
 
   create_table "spendings", force: :cascade do |t|
+    t.date     "date"
     t.integer  "sum"
     t.string   "category"
     t.string   "description"
