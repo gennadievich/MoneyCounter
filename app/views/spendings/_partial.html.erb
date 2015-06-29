@@ -1,0 +1,40 @@
+<style type="text/css">
+    table, th, td {
+        border: solid orange 1px;
+        border-collapse: collapse;
+    }
+    th{
+        width: 100px;
+    }
+</style>
+
+<table align="center">
+  <tr>
+    <th>Total</th>
+    <th><%= number_with_delimiter(spendings.sum(:sum)) %></th>
+  </tr>
+</table>
+
+<br>
+
+<table align="center">
+
+  <tr>
+    <th>Date</th>
+    <th>Category</th>
+    <th>Sum</th>
+    <th>Description</th>
+  </tr>
+
+  <% spendings.each do |spending| %>
+      <tr>
+        <td><%= spending.date %></td>
+        <td><%= spending.category %></td>
+        <td><%= number_with_delimiter(spending.sum) %></td>
+        <td><%= spending.description %></td>
+      </tr>
+  <% end %>
+
+
+
+</table>
