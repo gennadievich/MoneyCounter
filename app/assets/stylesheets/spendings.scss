@@ -1,5 +1,13 @@
 // Place all the styles related to the spendings controller here.
-// They will automatically be included in applications.css.
+// They will automatically be included in application.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+table, th, td, tr{
+  border-collapse: collapse;
+  border: solid 1px orange;
+  margin: auto;
+}
 
+table{
+  width: 700px;
+}

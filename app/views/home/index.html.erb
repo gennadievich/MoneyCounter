@@ -1,7 +1,11 @@
 <div class="home">
-<h1>Count your money :)</h1>
+  <p>Count your money :)</p>
 
-Earn Money :)
+  <div class="earning">
+    <%= link_to 'Add Earning' %>
+  </div>
 
-<%= link_to 'Add Spending', new_user_spending_path(current_user) if current_user %>
+  <div class="spending">
+    <%= link_to 'Add Spending', new_user_spending_path(current_user) if current_user %>
+  </div>
 </div>

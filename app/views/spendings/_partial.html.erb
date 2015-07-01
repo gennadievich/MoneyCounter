@@ -1,14 +1,6 @@
-<style type="text/css">
-    table, th, td {
-        border: solid orange 1px;
-        border-collapse: collapse;
-    }
-    th{
-        width: 100px;
-    }
-</style>
 
-<table align="center">
+
+<table>
   <tr>
     <th>Total</th>
     <th><%= number_with_delimiter(spendings.sum(:sum)) %></th>
@@ -17,7 +9,7 @@
 
 <br>
 
-<table align="center">
+<table>
 
   <tr>
     <th>Date</th>
