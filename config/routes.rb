@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   post '/users/:user_id/spendings/new' => 'spendings#create'
+  delete '/users/:user_id/spendings/:id' => 'spendings#destroy', as: :delete_spending
 
   get '/logout' => 'sessions#destroy', as: :logout
   get '/login'  => 'sessions#index', as: :login

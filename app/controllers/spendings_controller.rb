@@ -17,6 +17,9 @@ class SpendingsController < ApplicationController
   end
 
   def destroy
+    @spending = Spending.find(params[:id])
+    @spending.destroy
+    redirect_to :back
   end
 
   protected

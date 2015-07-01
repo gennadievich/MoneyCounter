@@ -16,6 +16,7 @@
     <th>Category</th>
     <th>Sum</th>
     <th>Description</th>
+    <th>X</th>
   </tr>
 
   <% spendings.each do |spending| %>
@@ -24,6 +25,7 @@
         <td><%= spending.category %></td>
         <td><%= number_with_delimiter(spending.sum) %></td>
         <td><%= spending.description %></td>
+        <td><%= link_to 'X', delete_spending_path(spending.user.id, spending.id), method: :delete %></td>
       </tr>
   <% end %>
 
