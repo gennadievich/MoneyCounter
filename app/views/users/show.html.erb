@@ -1,5 +1,6 @@
 <div class="user_page">
-  <p>My spendings</p>
 
-  <%= render partial: 'spendings/partial', locals: {spendings: @spendings} %>
+  <%= link_to 'My Spendings', user_spendings_path(@user) %>
+  <%= link_to 'My Earnings', user_earnings_path(@user) %>
+
 </div>

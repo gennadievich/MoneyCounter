@@ -1,0 +1,32 @@
+<table>
+  <tr>
+    <th>Total</th>
+    <th><%= number_with_delimiter(earnings.sum(:sum)) %></th>
+  </tr>
+</table>
+
+<br>
+
+<table>
+
+  <tr>
+    <th>Date</th>
+    <th>Category</th>
+    <th>Sum</th>
+    <th>Description</th>
+    <th>X</th>
+  </tr>
+
+  <% earnings.each do |earning| %>
+      <tr>
+        <td><%= earning.date %></td>
+        <td><%= earning.category %></td>
+        <td><%= number_with_delimiter(earning.sum) %></td>
+        <td><%= truncate(earning.description, length: 25) %></td>
+        <td><%= link_to 'X', delete_spending_path(earning.user.id, earning.id), method: :delete %></td>
+      </tr>
+  <% end %>
+
+
+
+</table>

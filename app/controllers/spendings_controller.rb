@@ -3,6 +3,10 @@ class SpendingsController < ApplicationController
     @spending = Spending.new
   end
 
+  def index
+    @spendings = current_user.spendings
+  end
+
   def show
   end
 

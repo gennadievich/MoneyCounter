@@ -9,12 +9,17 @@ Rails.application.routes.draw do
   post '/users/:user_id/spendings/new' => 'spendings#create'
   delete '/users/:user_id/spendings/:id' => 'spendings#destroy', as: :delete_spending
 
+  post '/users/:user_id/earnings/new' => 'earnings#create'
+  delete '/users/:user_id/earnings/:id' => 'earnings#destroy', as: :delete_earning
+
+
   get '/logout' => 'sessions#destroy', as: :logout
   get '/login'  => 'sessions#index', as: :login
   post '/login' => 'sessions#create'
 
   resources :users do
     resources :spendings
+    resources :earnings
   end
 
   # Example of regular route:

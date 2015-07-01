@@ -2,7 +2,7 @@
   <p>Count your money :)</p>
 
   <div class="earning">
-    <%= link_to 'Add Earning' %>
+    <%= link_to 'Add Earning', new_user_earning_path(current_user) if current_user %>
   </div>
 
   <div class="spending">

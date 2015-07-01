@@ -1,5 +1,3 @@
-
-
 <table>
   <tr>
     <th>Total</th>
@@ -24,7 +22,7 @@
         <td><%= spending.date %></td>
         <td><%= spending.category %></td>
         <td><%= number_with_delimiter(spending.sum) %></td>
-        <td><%= spending.description %></td>
+        <td><%= truncate(spending.description, length: 25) %></td>
         <td><%= link_to 'X', delete_spending_path(spending.user.id, spending.id), method: :delete %></td>
       </tr>
   <% end %>
