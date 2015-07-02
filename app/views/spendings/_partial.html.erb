@@ -23,7 +23,7 @@
         <td><%= spending.category %></td>
         <td><%= number_with_delimiter(spending.sum) %></td>
         <td><%= truncate(spending.description, length: 25) %></td>
-        <td><%= link_to 'X', delete_spending_path(spending.user.id, spending.id), method: :delete %></td>
+        <td><%= link_to 'X', delete_spending_path(spending.user.id, spending.id), method: :delete, data: { confirm: "Are you sure?" } %></td>
       </tr>
   <% end %>
 

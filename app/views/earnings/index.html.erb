@@ -1,3 +1,5 @@
 <p>My earnings</p>
 
+<%= button_to 'Add Earning', new_user_earning_path, method: :get, class: 'button' %>
+
 <%= render partial: 'earnings/partial', locals: {earnings: @earnings} %>
