@@ -1,2 +1,17 @@
-<h1>Earnings#show</h1>
-<p>Find me in app/views/earnings/show.html.erb</p>
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Category</th>
+    <th>Sum</th>
+    <th>Description</th>
+    <th>X</th>
+  </tr>
+
+  <tr>
+    <td><%= @earning.date %></td>
+    <td><%= @earning.category %></td>
+    <td><%= @earning.sum %></td>
+    <td><%= @earning.description %></td>
+    <td><%= link_to 'X', delete_earning_path(params[:user_id], params[:id]), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+  </tr>
+</table>

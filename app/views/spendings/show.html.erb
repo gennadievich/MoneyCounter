@@ -1,2 +1,17 @@
-<h1>Spendings#show</h1>
-<p>Find me in app/views/spendings/show.html.erb</p>
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Category</th>
+    <th>Sum</th>
+    <th>Description</th>
+    <th>X</th>
+  </tr>
+
+  <tr>
+    <td><%= @spending.date %></td>
+    <td><%= @spending.category %></td>
+    <td><%= @spending.sum %></td>
+    <td><%= @spending.description %></td>
+    <td><%= link_to 'X', delete_spending_path(params[:user_id], params[:id]), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+  </tr>
+</table>

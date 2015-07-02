@@ -8,6 +8,7 @@ class SpendingsController < ApplicationController
   end
 
   def show
+    @spending = Spending.find(params[:id])
   end
 
   def create
@@ -23,7 +24,7 @@ class SpendingsController < ApplicationController
   def destroy
     @spending = Spending.find(params[:id])
     @spending.destroy
-    redirect_to :back
+    redirect_to user_spendings_path
   end
 
   protected

@@ -1,6 +1,25 @@
 <div class="home">
   <p>Count your money :)</p>
 
+  <% if current_user %>
+  <table>
+    <tr>
+      <td>Your total earnings</td>
+      <td class=""><%= number_with_delimiter(@total_earnings) %></td>
+    </tr>
+
+    <tr>
+      <td>Your total spendings</td>
+      <td><%= number_with_delimiter(@total_spendings) %></td>
+    </tr>
+
+    <tr>
+      <td>Balance:</td>
+      <td class='<%= @balance > 0 ? 'green' : 'red' %>'><%= number_with_delimiter(@balance) %></td>
+    </tr>
+  </table>
+  <% end %>
+
   <div class="earning">
     <%= link_to 'Add Earning', new_user_earning_path(current_user) if current_user %>
   </div>

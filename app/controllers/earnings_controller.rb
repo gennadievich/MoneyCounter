@@ -8,6 +8,7 @@ class EarningsController < ApplicationController
   end
 
   def show
+    @earning = Earning.find(params[:id])
   end
 
   def create
@@ -23,7 +24,7 @@ class EarningsController < ApplicationController
   def destroy
     @earning = Earning.find(params[:id])
     @earning.destroy
-    redirect_to :back
+    redirect_to user_earnings_path
   end
 
   protected

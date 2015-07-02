@@ -14,16 +14,16 @@
     <th>Category</th>
     <th>Sum</th>
     <th>Description</th>
-    <th>X</th>
+    <th>I</th>
   </tr>
 
   <% spendings.each do |spending| %>
       <tr>
         <td><%= spending.date %></td>
-        <td><%= spending.category %></td>
+        <td><%= truncate(spending.category, length: 10) %></td>
         <td><%= number_with_delimiter(spending.sum) %></td>
         <td><%= truncate(spending.description, length: 25) %></td>
-        <td><%= link_to 'X', delete_spending_path(spending.user.id, spending.id), method: :delete, data: { confirm: "Are you sure?" } %></td>
+        <td><%= link_to 'I', user_spending_path(spending.user.id, spending.id) %></td>
       </tr>
   <% end %>
 
