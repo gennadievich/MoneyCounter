@@ -1,9 +1,17 @@
 <%= form_tag login_path do%>
-    <%= label_tag :email %>
-    <%= email_field_tag :email %>
+
+
+  <div class="labels">
+    <%= label_tag :email, nil, class: 'label' %>
     <br>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
+    <%= label_tag :password, nil, class: 'label' %>
+  </div>
+
+  <div class="fields">
+    <%= email_field_tag :email, nil, class: 'field' %>
     <br>
+    <%= password_field_tag :password, nil, class: 'field' %>
+  </div>
+
     <%= submit_tag 'Login' %>
 <% end %>

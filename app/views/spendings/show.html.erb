@@ -10,7 +10,7 @@
   <tr>
     <td><%= @spending.date %></td>
     <td><%= @spending.category %></td>
-    <td><%= @spending.sum %></td>
+    <td><%= number_with_delimiter(@spending.sum) %></td>
     <td><%= @spending.description %></td>
     <td><%= link_to 'X', delete_spending_path(params[:user_id], params[:id]), method: :delete, data: {confirm: 'Are you sure?'} %></td>
   </tr>
