@@ -7,3 +7,37 @@
     font-size: 40px;
   }
 }
+
+.user_form{
+
+  .labels{
+    float: left;
+    width: 40%;
+    height: 80px;
+    .label{
+      clear: both;
+      float: right;
+      margin-right: 5px;
+      margin-bottom: 2px;
+    }
+  }
+
+  .fields{
+    float: right;
+    width: 60%;
+    height: 80px;
+    .field{
+      padding-left: 5px;
+      margin-left: 5px;
+      margin-bottom: 5px;
+      height: 24px;
+      width: 250px;
+      font-size: 20px;
+      float: left;
+      clear: both;
+    }
+  }
+  .button{
+    margin-top: 35px;
+  }
+}
