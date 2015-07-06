@@ -1,15 +1,16 @@
 <%= form_for :spending do |f|%>
-    <%= f.label :date %>
-    <%= f.date_field :date, value: Time.now.strftime('%Y-%m-%d') %>
+
+    <%= f.date_field :date, value: Time.now.strftime('%Y-%m-%d'), class: 'field' %>
     <br>
-    <%= f.label :sum %>
-    <%= f.number_field :sum %>
+
+    <%= f.number_field :sum, placeholder: 'Sum', class: 'field' %>
     <br>
-    <%= f.label :category %>
-    <%= f.text_field :category %>
+
+    <%= f.text_field :category, placeholder: 'Category', class: 'field' %>
     <br>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
+
+    <%= f.text_field :description, placeholder: 'Description', class: 'field' %>
     <br>
-    <%= f.submit 'Add Spending' %>
+    <br>
+    <%= f.submit 'Add Spending', class: 'button' %>
 <% end %>

@@ -8,12 +8,12 @@
   <% if current_user %>
     <table>
       <tr>
-        <td>Your total earnings</td>
+        <td>Your total <%= link_to 'earnings', user_earnings_path(current_user) %></td>
         <td class=""><%= number_with_delimiter(@total_earnings) %></td>
       </tr>
 
       <tr>
-        <td>Your total spendings</td>
+        <td>Your total <%= link_to 'spendings', user_spendings_path(current_user) %></td>
         <td><%= number_with_delimiter(@total_spendings) %></td>
       </tr>
 
@@ -24,11 +24,11 @@
     </table>
 
     <div class="earning">
-      <%= link_to 'Add Earning', new_user_earning_path(current_user) %>
+      <%= button_to 'Add Earning', new_user_earning_path(current_user), method: :get, class: 'button' %>
     </div>
 
     <div class="spending">
-      <%= link_to 'Add Spending', new_user_spending_path(current_user) %>
+      <%= button_to 'Add Spending', new_user_spending_path(current_user), method: :get, class: 'button' %>
     </div>
   <% end %>
 
