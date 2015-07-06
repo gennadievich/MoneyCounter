@@ -19,10 +19,10 @@
 
   <% spendings.each do |spending| %>
       <tr>
-        <td><%= spending.date %></td>
+        <td id="date_cell"><%= spending.date %></td>
         <td><%= truncate(spending.category, length: 10) %></td>
         <td><%= number_with_delimiter(spending.sum) %></td>
-        <td><%= truncate(spending.description, length: 25) %></td>
+        <td><%= truncate(spending.description, length: 20) %></td>
         <td><%= link_to 'I', user_spending_path(spending.user.id, spending.id) %></td>
       </tr>
   <% end %>

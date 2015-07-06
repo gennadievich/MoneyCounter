@@ -19,10 +19,10 @@
 
   <% earnings.each do |earning| %>
       <tr>
-        <td><%= earning.date %></td>
+        <td id="date_cell"><%= earning.date %></td>
         <td><%= truncate(earning.category, length: 10) %></td>
         <td><%= number_with_delimiter(earning.sum) %></td>
-        <td><%= truncate(earning.description, length: 25) %></td>
+        <td><%= truncate(earning.description, length: 20) %></td>
         <td><%= link_to 'I', user_earning_path(earning.user.id, earning.id) %></td>
       </tr>
   <% end %>
