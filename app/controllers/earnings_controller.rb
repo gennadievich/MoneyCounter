@@ -4,7 +4,22 @@ class EarningsController < ApplicationController
   end
 
   def index
-    @earnings = current_user.earnings
+    @earnings = current_user.earnings.order('date desc')
+  end
+
+  def edit
+    @earning = Earning.find(params[:id])
+  end
+
+  def update
+    @earning = Earning.find(params[:id])
+
+    if @earning.update(earning_params)
+      redirect_to user_earnings_path(current_user)
+    else
+      render :edit
+    end
+
   end
 
   def show

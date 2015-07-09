@@ -4,11 +4,26 @@ class SpendingsController < ApplicationController
   end
 
   def index
-    @spendings = current_user.spendings
+    @spendings = current_user.spendings.order('date desc')
   end
 
   def show
     @spending = Spending.find(params[:id])
+  end
+
+  def edit
+    @spending = Spending.find(params[:id])
+  end
+
+  def update
+    @spending = Spending.find(params[:id])
+
+    if @spending.update(spending_params)
+      redirect_to user_spendings_path(current_user)
+    else
+      render :edit
+    end
+
   end
 
   def create
