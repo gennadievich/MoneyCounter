@@ -14,3 +14,16 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function(){
+
+    $('#login-link').click(function(e){
+        $('#login-link').toggleClass('gw');
+        $('.popup').toggle();
+        e.preventDefault();
+    })
+
+
+
+});
+

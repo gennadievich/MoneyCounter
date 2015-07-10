@@ -59,3 +59,24 @@ table{
   font-size: 20px;
   margin-bottom: 5px;
 }
+
+.popup{
+  display: none;
+  background: ghostwhite;
+  width: 300px;
+  height: 200px;
+  padding: 20px;
+  position: absolute;
+  top: 50px;
+  left: 750px;
+  opacity: 0.93;
+}
+
+#login-link{
+  background: white;
+  padding: 20px;
+}
+
+.gw{
+  background-color: ghostwhite !important;
+}
