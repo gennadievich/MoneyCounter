@@ -13,17 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require_tree .
 
-$(function(){
 
-    $('#login-link').click(function(e){
-        $('#login-link').toggleClass('gw');
-        $('.popup').toggle();
-        e.preventDefault();
-    })
-
-
-
-});
 

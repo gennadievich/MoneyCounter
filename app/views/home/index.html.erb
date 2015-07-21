@@ -1,12 +1,15 @@
-<div class="home">
-  <p>Count your money :)</p>
+<div>
 
-  <% unless current_user %>
-    <p>But first <%= link_to 'register', new_user_path %> or <%= link_to 'sign in', login_path%> (:</p>
-  <% end %>
+  <h1 class="text-center">Count your money :)</h1>
+
+  <div>
+    <% unless current_user %>
+        <p>But first <%= link_to 'register', new_user_path %> or <%= link_to 'sign in', login_path%> (:</p>
+    <% end %>
+  </div>
 
   <% if current_user %>
-    <table>
+    <table class="table">
       <tr>
         <td>Your total <%= link_to 'earnings', user_earnings_path(current_user) %></td>
         <td class=""><%= number_with_delimiter(@total_earnings) %></td>
@@ -23,13 +26,16 @@
       </tr>
     </table>
 
-    <div class="earning">
-      <%= button_to 'Add Earning', new_user_earning_path(current_user), method: :get, class: 'button' %>
+    <div class="row">
+      <div class="col-md-6">
+        <%= button_to 'Add Earning', new_user_earning_path(current_user), method: :get, class: 'btn btn-success btn-block' %>
+      </div>
+      <div class="col-md-6">
+        <%= button_to 'Add Spending', new_user_spending_path(current_user), method: :get, class: 'btn btn-warning btn-block' %>
+      </div>
+
     </div>
 
-    <div class="spending">
-      <%= button_to 'Add Spending', new_user_spending_path(current_user), method: :get, class: 'button' %>
-    </div>
   <% end %>
 
 

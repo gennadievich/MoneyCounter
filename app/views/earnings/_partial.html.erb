@@ -1,23 +1,26 @@
-<table>
+<table class="table">
   <tr>
     <th>Total</th>
     <th><%= number_with_delimiter(earnings.sum(:sum)) %></th>
   </tr>
 </table>
 
+<%= button_to 'Add Earning', new_user_earning_path, method: :get, class: 'button' %>
+
 <br>
 
-<table>
+<div class="row">
+  <table class="table table-striped">
 
-  <tr>
-    <th>Date</th>
-    <th>Category</th>
-    <th>Sum</th>
-    <th>Description</th>
-    <th>I</th>
-  </tr>
+    <tr>
+        <th>Date</th>
+        <th>Category</th>
+        <th>Sum</th>
+        <th>Description</th>
+        <th>I</th>
+    </tr>
 
-  <% earnings.each do |earning| %>
+    <% earnings.each do |earning| %>
       <tr>
         <td id="date_cell"><%= earning.date %></td>
         <td><%= truncate(earning.category, length: 10) %></td>
@@ -25,6 +28,7 @@
         <td><%= truncate(earning.description, length: 20) %></td>
         <td><%= link_to 'I', user_earning_path(earning.user.id, earning.id) %></td>
       </tr>
-  <% end %>
+    <% end %>
 
-</table>
+  </table>
+</div>

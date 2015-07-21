@@ -7,29 +7,30 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="main-container" class="container">
+  <div class="row">
 
-<div class="menu">
-  <%= link_to 'Home', root_path %>
-  <%= link_to 'Login', login_path, id: 'login-link' unless current_user%>
-  <%= link_to current_user.email, user_path(current_user) if current_user %>
-  <%= link_to 'Logout', logout_path if current_user%>
-  <%= link_to 'Register', new_user_path unless current_user%>
+    <div class="col-md-4">
+      <!--пусто слева-->
+    </div>
+
+    <div class="col-md-4 text-center">
+      <div class="nav">
+
+        <ul>
+          <li><%= link_to 'Home', root_path %></li>
+          <li><%= link_to 'Login', login_path, id: 'login-link' unless current_user %></li>
+          <li><%= link_to current_user.email, user_path(current_user) if current_user %></li>
+          <li><%= link_to 'Logout', logout_path if current_user%></li>
+          <li><%= link_to 'Register', new_user_path unless current_user%></li>
+        </ul>
+      </div>
+      <%= yield %>
+    </div>
+
+    <div class="col-md-4"></div>
+
+  </div>
 </div>
-
-<div class="popup">
-  <%= form_tag login_path do%>
-
-      <%= email_field_tag :email, nil, placeholder: 'Email', class: 'field' %>
-      <br>
-      <%= password_field_tag :password, nil, placeholder: 'Password', class: 'field' %>
-      <br>
-      <br>
-      <%= submit_tag 'Sign in', class: 'button' %>
-  <% end %>
-</div>
-
-
-<%= yield %>
-
 </body>
 </html>
