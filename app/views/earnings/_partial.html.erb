@@ -1,23 +1,22 @@
 <table class="table">
   <tr>
-    <th>Total</th>
-    <th><%= number_with_delimiter(earnings.sum(:sum)) %></th>
+    <th class="text-center">Total</th>
+    <th class="text-center"><%= number_with_delimiter(earnings.sum(:sum)) %></th>
   </tr>
 </table>
 
-<%= button_to 'Add Earning', new_user_earning_path, method: :get, class: 'button' %>
+<%= button_to 'Add Earning', new_user_earning_path, method: :get, class: 'btn btn-success' %>
 
 <br>
 
 <div class="row">
   <table class="table table-striped">
-
     <tr>
-        <th>Date</th>
-        <th>Category</th>
-        <th>Sum</th>
-        <th>Description</th>
-        <th>I</th>
+        <th class="text-center">Date</th>
+        <th class="text-center">Category</th>
+        <th class="text-center">Sum</th>
+        <th class="text-center">Description</th>
+        <th class="text-center">I</th>
     </tr>
 
     <% earnings.each do |earning| %>

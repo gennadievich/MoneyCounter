@@ -1,12 +1,12 @@
 <%= form_for [current_user, @earning] do |f|%>
-    <%= f.date_field :date, value: Time.now.strftime('%Y-%m-%d'), class: 'field' %>
+    <%= f.date_field :date, value: Time.now.strftime('%Y-%m-%d'), class: 'form-control width-50' %>
     <br>
-    <%= f.number_field :sum, placeholder: 'Sum', class: 'field' %>
+    <%= f.number_field :sum, placeholder: 'Sum', class: 'form-control width-50' %>
     <br>
-    <%= f.text_field :category, placeholder: 'Category', class: 'field' %>
+    <%= f.text_field :category, placeholder: 'Category', class: 'form-control width-50' %>
     <br>
-    <%= f.text_field :description, placeholder: 'Description', class: 'field' %>
+    <%= f.text_field :description, placeholder: 'Description', class: 'form-control width-50' %>
     <br>
     <br>
-    <%= f.submit nil, class: 'button' %>
+    <%= f.submit nil, class: 'btn btn-success' %>
 <% end %>

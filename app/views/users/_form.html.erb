@@ -1,13 +1,12 @@
-<%= form_for @user do |f|%>
+<div class="form-group">
+    <%= form_for @user do |f|%>
+        <%= f.email_field :email, placeholder: 'Email', class: 'form-control width-50' %>
+        <br>
+        <%= f.password_field :password, placeholder: 'Password', class: 'form-control width-50'  %>
+        <br>
+        <%= f.password_field :password_confirmation, placeholder: 'Confirm password', class: 'form-control width-50'  %>
+        <br>
+        <%= f.submit 'Register!', class: 'btn btn-default' %>
 
-    <%= f.email_field :email, placeholder: 'Email', class: 'field' %>
-    <br>
-    <%= f.password_field :password, placeholder: 'Password', class: 'field'  %>
-    <br>
-    <%= f.password_field :password_confirmation, placeholder: 'Confirm password', class: 'field'  %>
-
-    <br>
-
-    <%= f.submit 'Register!', class: 'button' %>
-
-<% end %>
+    <% end %>
+</div>
