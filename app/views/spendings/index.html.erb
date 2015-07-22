@@ -1,5 +1,3 @@
-<p>My spendings</p>
-
-<%= button_to 'Add Spending', new_user_spending_path, method: :get, class: 'button' %>
+<h2>My spendings</h2>
 
 <%= render partial: 'spendings/partial', locals: {spendings: @spendings} %>

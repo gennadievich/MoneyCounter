@@ -1,23 +1,25 @@
-<table>
+<table class="table">
   <tr>
-    <th>Total</th>
-    <th><%= number_with_delimiter(spendings.sum(:sum)) %></th>
+    <th class="text-center">Total</th>
+    <th class="text-center"><%= number_with_delimiter(spendings.sum(:sum)) %></th>
   </tr>
 </table>
 
+<%= button_to 'Add Spending', new_user_spending_path, method: :get, class: 'btn btn-warning' %>
+
 <br>
 
-<table>
+<div class="row">
+  <table class="table table-striped">
+    <tr>
+      <th class="text-center">Date</th>
+      <th class="text-center">Category</th>
+      <th class="text-center">Sum</th>
+      <th class="text-center">Description</th>
+      <th class="text-center">I</th>
+    </tr>
 
-  <tr>
-    <th>Date</th>
-    <th>Category</th>
-    <th>Sum</th>
-    <th>Description</th>
-    <th>I</th>
-  </tr>
-
-  <% spendings.each do |spending| %>
+    <% spendings.each do |spending| %>
       <tr>
         <td id="date_cell"><%= spending.date %></td>
         <td><%= truncate(spending.category, length: 10) %></td>
@@ -25,8 +27,7 @@
         <td><%= truncate(spending.description, length: 20) %></td>
         <td><%= link_to 'I', user_spending_path(spending.user.id, spending.id) %></td>
       </tr>
-  <% end %>
+    <% end %>
 
-
-
-</table>
+  </table>
+</div>
