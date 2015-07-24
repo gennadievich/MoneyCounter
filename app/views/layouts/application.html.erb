@@ -3,7 +3,7 @@
 <head>
   <title>MoneyCounter</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -19,11 +19,36 @@
 
         <ul>
           <li><%= link_to 'Home', root_path %></li>
-          <li><%= link_to 'Login', login_path, id: 'login-link' unless current_user %></li>
+          <li><%= link_to 'Login', nil, id: 'login-link' unless current_user %></li>
           <li><%= link_to current_user.email, user_path(current_user) if current_user %></li>
           <li><%= link_to 'Logout', logout_path if current_user%></li>
-          <li><%= link_to 'Register', new_user_path unless current_user%></li>
+          <li><%= link_to 'Register', nil, id: 'register-link' unless current_user%></li>
+
         </ul>
+
+        <div class="login-div">
+          <%= form_tag login_path do%>
+              <%= email_field_tag :email, nil, placeholder: 'Email', class: 'form-control width-50' %>
+              <br>
+              <%= password_field_tag :password, nil, placeholder: 'Password', class: 'form-control width-50' %>
+              <br>
+              <%= submit_tag 'Sign in', class: 'btn btn-default' %>
+          <% end %>
+        </div>
+
+        <div class="register-div">
+          <%= form_for :user do |f|%>
+              <%= f.email_field :email, placeholder: 'Email', class: 'form-control width-50' %>
+              <br>
+              <%= f.password_field :password, placeholder: 'Password', class: 'form-control width-50'  %>
+              <br>
+              <%= f.password_field :password_confirmation, placeholder: 'Confirm password', class: 'form-control width-50'  %>
+              <br>
+              <%= f.submit 'Register!', class: 'btn btn-default' %>
+
+          <% end %>
+        </div>
+
       </div>
       <%= yield %>
     </div>
@@ -32,5 +57,6 @@
 
   </div>
 </div>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>

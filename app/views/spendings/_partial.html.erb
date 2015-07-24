@@ -21,7 +21,7 @@
 
     <% spendings.each do |spending| %>
       <tr>
-        <td id="date_cell"><%= spending.date %></td>
+        <td><%= spending.date %></td>
         <td><%= truncate(spending.category, length: 10) %></td>
         <td><%= number_with_delimiter(spending.sum) %></td>
         <td><%= truncate(spending.description, length: 15) %></td>
