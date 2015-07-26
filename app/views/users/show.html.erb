@@ -1,6 +1,39 @@
-<div class="user_page">
+<div class="row">
+  <div class="col-md-6 col-xs-6">
+    <%= button_to 'Spendings for period', nil, class: 'btn btn-warning btn-block', id: 'spendings-link' %>
+  </div>
+  <div class="col-md-6 col-xs-6">
+    <%= button_to 'Earnings for period', nil, class: 'btn btn-success btn-block', id: 'earnings-link' %>
+  </div>
+</div>
 
-  <%= link_to 'My Spendings', user_spendings_path(@user) %>
-  <%= link_to 'My Earnings', user_earnings_path(@user) %>
 
+<div class="spendings-div">
+  <div class="form-group">
+    <%= form_tag(spendings_period_path(current_user)) do%>
+      <%= label_tag :start_date, nil, class: 'lbl' %>
+      <%= label_tag :end_date, nil, class: 'lbl' %>
+      <br>
+      <%= date_field_tag :start_date, (Time.now).strftime('%Y-%m-01'), class: 'form-control width-30' %>
+      <%= date_field_tag :end_date, Time.now.strftime('%Y-%m-%d'), class: 'form-control width-30' %>
+      <br>
+      <br>
+      <%= submit_tag 'Show Spendings', class: 'btn btn-warning'%>
+    <% end %>
+  </div>
+</div>
+
+<div class="earnings-div">
+  <div class="form-group">
+    <%= form_tag(earnings_period_path(current_user)) do%>
+        <%= label_tag :start_date, nil, class: 'lbl' %>
+        <%= label_tag :end_date, nil, class: 'lbl' %>
+        <br>
+        <%= date_field_tag :start_date, (Time.now).strftime('%Y-%m-01'), class: 'form-control width-30' %>
+        <%= date_field_tag :end_date, Time.now.strftime('%Y-%m-%d'), class: 'form-control width-30' %>
+        <br>
+        <br>
+        <%= submit_tag 'Show Earnings', class: 'btn btn-success'%>
+    <% end %>
+  </div>
 </div>

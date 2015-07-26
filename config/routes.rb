@@ -8,9 +8,11 @@ Rails.application.routes.draw do
 
   post '/users/:user_id/spendings/new' => 'spendings#create'
   delete '/users/:user_id/spendings/:id' => 'spendings#destroy', as: :delete_spending
+  post '/users/:user_id/spendings/period' => 'spendings#show_period', as: :spendings_period
 
   post '/users/:user_id/earnings/new' => 'earnings#create'
   delete '/users/:user_id/earnings/:id' => 'earnings#destroy', as: :delete_earning
+  post '/users/:user_id/earnings/period' => 'earnings#show_period', as: :earnings_period
 
 
   get '/logout' => 'sessions#destroy', as: :logout

@@ -1,0 +1,4 @@
+<h2>My earnings for period</h2>
+<h3>from <%= @start_date %>  to <%= @end_date %></h3>
+
+<%= render partial: 'earnings/partial', locals: {earnings: @earnings} %>

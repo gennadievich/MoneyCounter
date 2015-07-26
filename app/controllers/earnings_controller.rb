@@ -26,6 +26,12 @@ class EarningsController < ApplicationController
     @earning = Earning.find(params[:id])
   end
 
+  def show_period
+    @start_date = params[:start_date]
+    @end_date   = params[:end_date]
+    @earnings   = current_user.earnings.where('date >= ? and date <= ?', @start_date, @end_date).order('date desc')
+  end
+
   def create
     @earning = Earning.new(earning_params)
     @earning.user = current_user

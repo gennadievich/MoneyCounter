@@ -11,6 +11,12 @@ class SpendingsController < ApplicationController
     @spending = Spending.find(params[:id])
   end
 
+  def show_period
+    @start_date = params[:start_date]
+    @end_date   = params[:end_date]
+    @spendings  = current_user.spendings.where('date >= ? and date <= ?', @start_date, @end_date).order('date desc')
+  end
+
   def edit
     @spending = Spending.find(params[:id])
   end

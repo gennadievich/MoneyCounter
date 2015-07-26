@@ -18,7 +18,8 @@
       <div class="nav">
 
         <ul>
-          <li><%= link_to 'Home', root_path %></li>
+          <li><%= link_to 'Home', nil, id: 'home-link' unless current_user%></li>
+          <li><%= link_to 'Home', root_path if current_user%></li>
           <li><%= link_to 'Login', nil, id: 'login-link' unless current_user %></li>
           <li><%= link_to current_user.email, user_path(current_user) if current_user %></li>
           <li><%= link_to 'Logout', logout_path if current_user%></li>
