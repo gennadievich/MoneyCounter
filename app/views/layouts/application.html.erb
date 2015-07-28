@@ -38,14 +38,15 @@
         </div>
 
         <div class="register-div">
-          <%= form_for :user do |f|%>
-              <%= f.email_field :email, placeholder: 'Email', class: 'form-control width-50' %>
+          <%= form_tag users_path do%>
+              <!--<%= email_field_tag :email, nil, placeholder: 'Email', class: 'form-control width-50' %>-->
+              <%= text_field_tag "user[email]", nil, class: 'form-control width-50', placeholder: 'Email'  %>
               <br>
-              <%= f.password_field :password, placeholder: 'Password', class: 'form-control width-50'  %>
+              <%= text_field_tag "user[password]", nil, placeholder: 'Password', class: 'form-control width-50', type: 'password'  %>
               <br>
-              <%= f.password_field :password_confirmation, placeholder: 'Confirm password', class: 'form-control width-50'  %>
+              <%= text_field_tag "user[password_confirmation]", nil, placeholder: 'Confirm password', class: 'form-control width-50', type: 'password'  %>
               <br>
-              <%= f.submit 'Register!', class: 'btn btn-default' %>
+              <%= submit_tag 'Register!', class: 'btn btn-default' %>
 
           <% end %>
         </div>
