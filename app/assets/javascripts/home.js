@@ -1,7 +1,5 @@
 $(document).ready(function(){
 
-    $('h1').fadeIn(1500);
-
     $('#login-link').click(function(e){
         $('.register-div').hide();
         $('h1').hide();

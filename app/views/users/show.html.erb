@@ -27,44 +27,42 @@
     <td>
       <div class="row">
         <div class="col-md-6 col-xs-6">
-        <p>Show My</p>
-          <%= button_to 'Spendings for period', nil, class: 'btn btn-warning btn-block', id: 'spendings-link' %>
+            <p>Show My</p>
+            <%= button_to 'Spendings for period', nil, class: 'btn btn-warning btn-block', id: 'spendings-link' %>
+            <br>
+            <%= button_to 'Earnings for period', nil, class: 'btn btn-success btn-block', id: 'earnings-link' %>
+            <br>
+            <%= button_to 'Cancel', nil, class: 'btn btn-block', id: 'cancel-link' %>
         </div>
 
         <div class="col-md-6 col-xs-6">
-          <p style="color: white">a</p>
-          <%= button_to 'Earnings for period', nil, class: 'btn btn-success btn-block', id: 'earnings-link' %>
-        </div>
 
-        <div class="spendings-div">
-          <div class="form-group">
-            <%= form_tag(spendings_period_path(current_user)) do%>
-            <%= label_tag :start_date, nil, class: 'lbl' %>
-            <%= label_tag :end_date, nil, class: 'lbl' %>
-            <br>
-            <%= date_field_tag :start_date, (Time.now).strftime('%Y-%m-01'), class: 'form-control width-30' %>
-            <%= date_field_tag :end_date, Time.now.strftime('%Y-%m-%d'), class: 'form-control width-30' %>
-            <br>
-            <br>
-            <%= submit_tag 'Show Spendings', class: 'btn btn-warning'%>
-            <% end %>
-          </div>
-        </div>
+            <div class="spendings-div">
+              <p>Enter period</p>
+              <div class="form-group">
+                <%= form_tag(spendings_period_path(current_user)) do%>
+                <%= date_field_tag :start_date, (Time.now).strftime('%Y-%m-01'), class: 'form-control ' %>
+                <br>
+                <%= date_field_tag :end_date, Time.now.strftime('%Y-%m-%d'), class: 'form-control ' %>
+                <br>
+                <%= submit_tag 'Show Spendings', class: 'btn btn-warning'%>
+                <% end %>
+              </div>
+            </div>
 
         <div class="earnings-div">
+          <p>Enter period</p>
           <div class="form-group">
             <%= form_tag(earnings_period_path(current_user)) do%>
-            <%= label_tag :start_date, nil, class: 'lbl' %>
-            <%= label_tag :end_date, nil, class: 'lbl' %>
+            <%= date_field_tag :start_date, (Time.now).strftime('%Y-%m-01'), class: 'form-control' %>
             <br>
-            <%= date_field_tag :start_date, (Time.now).strftime('%Y-%m-01'), class: 'form-control width-30' %>
-            <%= date_field_tag :end_date, Time.now.strftime('%Y-%m-%d'), class: 'form-control width-30' %>
-            <br>
+            <%= date_field_tag :end_date, Time.now.strftime('%Y-%m-%d'), class: 'form-control' %>
             <br>
             <%= submit_tag 'Show Earnings', class: 'btn btn-success'%>
           <% end %>
           </div>
         </div>
+      </div>
       </div>
     </td>
   </tr>
