@@ -39,8 +39,7 @@
 
         <div class="register-div">
           <%= form_tag users_path do%>
-              <!--<%= email_field_tag :email, nil, placeholder: 'Email', class: 'form-control width-50' %>-->
-              <%= text_field_tag "user[email]", nil, class: 'form-control width-50', placeholder: 'Email'  %>
+              <%= text_field_tag "user[email]", nil, class: 'form-control width-50', placeholder: 'Email', type: 'email'  %>
               <br>
               <%= text_field_tag "user[password]", nil, placeholder: 'Password', class: 'form-control width-50', type: 'password'  %>
               <br>

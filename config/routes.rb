@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
+  put '/users/:user_id/edit' => 'users#update'
+
   post '/users/:user_id/spendings/new' => 'spendings#create'
   delete '/users/:user_id/spendings/:id' => 'spendings#destroy', as: :delete_spending
   post '/users/:user_id/spendings/period' => 'spendings#show_period', as: :spendings_period
