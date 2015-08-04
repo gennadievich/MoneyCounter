@@ -13,6 +13,7 @@
         <div class="chng-pass-div col-md-6 col-xs-6">
           <div class="form-group">
             <%= form_tag(edit_user_path, method: :put) do %>
+              <%= text_field_tag "user[old_password]", nil, placeholder: 'Old password', class: 'form-control field-margin', type: 'password' %>
               <%= text_field_tag "user[password]", nil, placeholder: 'New password', class: 'form-control field-margin', type: 'password' %>
               <%= text_field_tag "user[password_confirmation]", nil, placeholder: 'Confirm password', class: 'form-control field-margin', type: 'password' %>
               <%= submit_tag 'Change password', class: 'btn btn-default btn-block' %>

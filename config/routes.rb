@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
+  get '/users/:user_id/become_an_admin' => 'users#become_an_admin', as: :become_an_admin
+
   put '/users/:user_id/edit' => 'users#update'
 
   post '/users/:user_id/spendings/new' => 'spendings#create'

@@ -14,11 +14,15 @@ class UsersController < ApplicationController
   def update
     @user = current_user
 
-    if @user.update(user_params)
-      redirect_to user_path(current_user)
-    else
-      redirect_to :back
+    if @user.authenticate(params[:user][:old_password])
+
+      if @user.update(user_params)
+        redirect_to user_path(current_user)
+      else
+        redirect_to :back
+      end
     end
+
   end
 
   def create
@@ -26,18 +30,20 @@ class UsersController < ApplicationController
 
     if @user.save
       login(@user)
-      redirect_to root_path
+      redirect_to root_path, notice: "You successfully registered!"
     else
       render :new
     end
 
   end
 
-  protected
-
-  def chng_pass_params
-    params.require(:user).permit(:old_password, :password, :password_confirmation)
+  def become_an_admin
+    @user = current_user
+    @user.role = 'admin'
+    @user.save
   end
+
+  protected
 
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation)

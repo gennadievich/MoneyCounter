@@ -7,4 +7,9 @@ class User < ActiveRecord::Base
 
   has_many :spendings
   has_many :earnings
+
+  def admin?
+    self.role == 'admin'
+  end
+
 end
