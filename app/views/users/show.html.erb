@@ -5,13 +5,17 @@
       <div class="row">
         <div class="col-md-6 col-xs-6">
           <p>User's info</p>
-          <p style="font-size: small">Registered <%= @user.created_at.strftime('%Y-%m-01') %></p>
+          <p style="font-size: small">Registered <%= @user.created_at.strftime('%Y-%m-%d') %></p>
+          <p style="font-size: small">ID: <%= @user.id %></p>
           <%= button_to 'Change password', nil, class: 'btn btn-block', id: 'chng-btn-link' %>
           <%= button_to 'Cancel', nil, class: 'btn btn-block', id: 'cancel-btn-link' %>
         </div>
 
-        <div class="chng-pass-div col-md-6 col-xs-6">
-          <div class="form-group">
+        <div class="col-md-6 col-xs-6">
+          <div class="user-info">
+            <p>Some user statistics here</p>
+          </div>
+          <div class="chng-pass-div form-group">
             <%= form_tag(edit_user_path, method: :put) do %>
               <%= text_field_tag "user[old_password]", nil, placeholder: 'Old password', class: 'form-control field-margin', type: 'password' %>
               <%= text_field_tag "user[password]", nil, placeholder: 'New password', class: 'form-control field-margin', type: 'password' %>
