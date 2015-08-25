@@ -27,6 +27,10 @@
 
         </ul>
 
+        <% flash.each do |key, val| %>
+            <div class="alert alert-<%= key %>"><%= val %></div>
+        <% end %>
+
         <div class="login-div">
           <%= form_tag login_path do%>
               <%= email_field_tag :email, nil, placeholder: 'Email', class: 'form-control width-50' %>

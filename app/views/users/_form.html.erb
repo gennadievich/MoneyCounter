@@ -1,5 +1,8 @@
 <div class="form-group">
     <%= form_for @user do |f|%>
+
+        <%= render partial: 'shared/errors', locals: {subject: @user} %>
+
         <%= f.email_field :email, placeholder: 'Email', class: 'form-control width-50' %>
         <br>
         <%= f.password_field :password, placeholder: 'Password', class: 'form-control width-50'  %>
