@@ -1,0 +1,10 @@
+<%= form_tag users_path do%>
+    <%= text_field_tag "user[email]", nil, class: 'form-control width-50', placeholder: 'Email', type: 'email'  %>
+    <br>
+    <%= text_field_tag "user[password]", nil, placeholder: 'Password', class: 'form-control width-50', type: 'password'  %>
+    <br>
+    <%= text_field_tag "user[password_confirmation]", nil, placeholder: 'Confirm password', class: 'form-control width-50', type: 'password'  %>
+    <br>
+    <%= submit_tag 'Register!', class: 'btn btn-default' %>
+
+<% end %>
