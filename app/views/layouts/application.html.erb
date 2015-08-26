@@ -26,6 +26,8 @@
           <li><%= link_to 'Register', nil, id: 'register-link' unless current_user%></li>
         </ul>
 
+        <h1 class="text-center">Count your money :)</h1>
+
         <div class="flash">
             <% flash.each do |key, val| %>
                 <div class="alert alert-<%= key %>"><%= val %></div>
@@ -38,6 +40,9 @@
 
         <div class="register-div">
             <%= render partial: 'layouts/registerdiv' %>
+        </div>
+
+        <div class="homepage-div">
         </div>
 
       </div>

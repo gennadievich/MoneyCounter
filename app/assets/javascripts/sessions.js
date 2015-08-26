@@ -9,15 +9,26 @@ $(document).ready(function(){
             data: {email: email, password: password},
 
             success: function(data){
-                $('.flash').html('<div class="alert alert-success">' + data['message'] + '</div>');
+                $('.flash').show().html('<div class="alert alert-success">' + data['message'] + '</div>');
                 $('.login-div').hide();
+                $('h1').fadeIn('fast');
+                $.ajax({
+                    url: '/homepartial',
+                    type: 'get',
+                    format: 'html',
+
+                    success: function(data){
+                        $('.homepage-div').html(data);
+                    }
+                });
             },
 
             error: function(data) {
-                $('.flash').html('<div class="alert alert-warning">' + data.responseText + '</div>');
+                $('.flash').show().html('<div class="alert alert-warning">' + data.responseText + '</div>');
             }
         });
 
         e.preventDefault();
     });
+
 });

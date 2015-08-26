@@ -1,0 +1,29 @@
+  <% if current_user %>
+
+      <table class="table">
+        <tr>
+          <td>Your total <%= link_to 'earnings', user_earnings_path(current_user) %></td>
+          <td><%= number_with_delimiter(@total_earnings) %></td>
+        </tr>
+
+        <tr>
+          <td>Your total <%= link_to 'spendings', user_spendings_path(current_user) %></td>
+          <td><%= number_with_delimiter(@total_spendings) %></td>
+        </tr>
+
+        <tr>
+          <td>Balance:</td>
+          <td class='<%= @balance > 0 ? 'green' : 'red' %>'><%= number_with_delimiter(@balance) %></td>
+        </tr>
+      </table>
+
+      <div class="row">
+        <div class="col-md-6 col-xs-6">
+          <%= button_to 'Add Earning', new_user_earning_path(current_user), method: :get, class: 'btn btn-success btn-block' %>
+        </div>
+        <div class="col-md-6 col-xs-6">
+          <%= button_to 'Add Spending', new_user_spending_path(current_user), method: :get, class: 'btn btn-warning btn-block' %>
+        </div>
+      </div>
+
+  <% end %>
