@@ -26,16 +26,35 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    respond_to do |format|
+      @user = User.new(user_params)
 
-    if @user.save
-      login(@user)
-      redirect_to root_path, flash: { success: "You successfully registered!" }
-    else
-      render :new
+      if @user.save
+        login(@user)
+
+        format.json do
+          render json: {message: 'You successfully registered!'}.to_json
+        end
+        format.html do
+          redirect_to root_path, flash: { success: "You successfully registered!" }
+        end
+
+      else
+        user_errors = ""
+        format.json do
+          @user.errors.full_messages.each do |msg|
+            user_errors << (msg + '<br>')
+          end
+          render text: "#{user_errors}"
+        end
+        format.html { render :new }
+      end
     end
-
   end
+
+
+
+
 
   def become_an_admin
     @user = current_user

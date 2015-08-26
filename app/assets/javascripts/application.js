@@ -20,6 +20,12 @@ $(document).ready(function(){
     $('.flash').click(function(){
         $(this).fadeOut('fast');
     });
+    $('.alert').click(function(){
+        $(this).fadeOut('fast');
+    });
+    $('.notice').click(function(){
+        $(this).fadeOut('fast');
+    });
 });
 
 
