@@ -16,4 +16,8 @@ class HomeController < ApplicationController
 
     render partial: 'home/homepage'
   end
+
+  def ifcurrentuser
+    render partial: 'layouts/ifcurrentuser'
+  end
 end

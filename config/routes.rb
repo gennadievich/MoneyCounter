@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get '/homepartial' => 'home#homepartial', as: :homepartial
+  get '/ifcurrentuser' => 'home#ifcurrentuser', as: :ifcurrentuser
 
   get '/users/:user_id/become_an_admin' => 'users#become_an_admin', as: :become_an_admin
 

@@ -16,15 +16,17 @@
 
     <div class="col-md-6 col-xs-8 text-center">
       <div class="nav">
-
         <ul>
-          <li><%= link_to 'Home', nil, id: 'home-link' unless current_user%></li>
-          <li><%= link_to 'Home', root_path if current_user%></li>
-          <li><%= link_to 'Login', nil, id: 'login-link' unless current_user %></li>
-          <li><%= link_to current_user.email, user_path(current_user) if current_user %></li>
-          <li><%= link_to 'Logout', logout_path if current_user%></li>
-          <li><%= link_to 'Register', nil, id: 'register-link' unless current_user%></li>
+          <div class="unless-current-user">
+            <%= render partial: 'layouts/unlesscurrentuser' %>
+          </div>
+
+          <div class="if-current-user">
+            <!--here will be menu after login-->
+            <%= render partial: 'layouts/ifcurrentuser' %>
+          </div>
         </ul>
+      </div>
 
         <h1 class="text-center">Count your money :)</h1>
 
@@ -45,7 +47,7 @@
         <div class="homepage-div">
         </div>
 
-      </div>
+
       <%= yield %>
     </div>
 
