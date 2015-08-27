@@ -23,4 +23,16 @@ $(document).ready(function(){
     });
 
 
+    $('.get-dollar-btn').click(function(e){
+        $.ajax({
+            url:  '/getcurrency',
+            type: 'get',
+            format: 'json',
+            success: function(data){
+                $('.currency').html(data['message']);
+            }
+        });
+        e.preventDefault();
+    });
+
 });
