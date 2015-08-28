@@ -10,24 +10,32 @@
 <br>
 
 <div class="row">
-  <table class="table table-striped">
-    <tr>
+
+  <div style="float: right; padding: 5px;">
+    <%= text_field_tag 'searchspendings', nil, placeholder: 'Search' %>
+  </div>
+
+  <table class="table table-striped ">
+    <thead>
       <th class="text-center">Date</th>
       <th class="text-center">Category</th>
       <th class="text-center">Sum</th>
       <th class="text-center">Description</th>
       <th class="text-center">I</th>
-    </tr>
+    </thead>
 
+    <tbody class="testing">
     <% spendings.each do |spending| %>
-      <tr>
-        <td><%= spending.date %></td>
-        <td><%= truncate(spending.category, length: 10) %></td>
-        <td><%= number_with_delimiter(spending.sum) %></td>
-        <td><%= truncate(spending.description, length: 15) %></td>
-        <td><%= link_to 'I', user_spending_path(spending.user.id, spending.id) %></td>
-      </tr>
+        <tr class="firstone">
+          <td><%= spending.date %></td>
+          <td><%= truncate(spending.category, length: 10) %></td>
+          <td><%= number_with_delimiter(spending.sum) %></td>
+          <td><%= truncate(spending.description, length: 15) %></td>
+          <td><%= link_to 'I', user_spending_path(spending.user.id, spending.id) %></td>
+        </tr>
     <% end %>
+    </tbody>
 
   </table>
+
 </div>

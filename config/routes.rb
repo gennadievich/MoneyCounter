@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'search/searchspendings' => 'search#searchspendings', as: :searchspendings
+
   get 'getcurrency' => 'currency#getcurrency', as: :getcurrency
 
   # The priority is based upon order of creation: first created -> highest priority.
